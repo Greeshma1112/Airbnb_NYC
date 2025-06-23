@@ -1,0 +1,5 @@
+streamlit
+psycopg2-binary
+folium
+streamlit-folium
+python-dotenv
