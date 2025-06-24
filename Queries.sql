@@ -27,7 +27,7 @@ ORDER BY homicide_count DESC;
 # create a new table
 CREATE MATERIALIZED VIEW safe_airbnb_listings AS
 SELECT 
-    l.id,
+    l.id,l.name,
     l.host_name,
     l.price::numeric,
     l.room_type,
@@ -38,4 +38,4 @@ SELECT
 FROM nyc_listings_bnb l
 JOIN nyc_neighborhoods n ON ST_Contains(n.geom_4326, l.listing_geom)
 LEFT JOIN nyc_homicides h ON ST_Contains(n.geom_4326, h.geom_4326)
-GROUP BY l.id, l.host_name, l.price, l.room_type, n.name, l.listing_geom;
+GROUP BY l.id,l.name, l.host_name, l.price, l.room_type, n.name, l.listing_geom;
