@@ -1,4 +1,4 @@
-
+ 
 import streamlit as st
 import psycopg2
 import folium
@@ -47,7 +47,7 @@ with st.sidebar.form("filter_form"):
 # --- Run query if user submits form ---
 if submitted:
     query = f"""
-    SELECT id, host_name, price, room_type, neighborhood, lon, lat, homicide_count
+    SELECT id,name, price, room_type, neighborhood, lon, lat, homicide_count
     FROM safe_airbnb_listings
     WHERE price BETWEEN %s AND %s
     {"AND room_type = %s" if selected_room else ""}
